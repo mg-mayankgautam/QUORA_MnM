@@ -56,8 +56,7 @@ input[class=question_input]{
     }
 
 .top_buttons{
-    
-    margin:20px 20px;
+    margin:20px 0px;
     display: flex;
     /* gap: 15px; */
     justify-content: center;
@@ -69,7 +68,7 @@ input[class=question_input]{
 .add_question{
     /* flex-grow: 1; */
     max-width: 75%;
-    width: 830px;
+    width: 800px;
     }
     
 button{
@@ -78,6 +77,8 @@ button{
     border-radius: 5px;
     border: 1px solid #9d9d9d;
     cursor: pointer;
+    background-color: #1d273d;
+    color: white;
     }
 
 .output_div{
@@ -107,8 +108,17 @@ button{
 }
 .ques_info{
     display: flex;
-    gap:40px;
+    gap:30px;
     justify-content: right;
+    font-size: small;
+    align-items: center;
+}
+.ques_text{
+    font-size: medium;
+    font-weight: bold;
+}
+.answer_num{
+    font-size: small;
 }
 
 [answer]{
@@ -141,11 +151,12 @@ form[action='/addanswer']{
     justify-content: right;
 }
 
-button.del_btn{
-    align-self:flex-start;
+button.delete_btn{
+    /* align-self:flex-start; */
     padding: 8px 8px;
     border-radius: 5px;
-  border: 1px solid #9d9d9d;
+    border: 1px solid #9d9d9d;
+
 }
 
 
