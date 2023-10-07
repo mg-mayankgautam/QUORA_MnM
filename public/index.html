@@ -23,8 +23,34 @@
              </form> 
         </div>
 
-        <div class="username" id="m">
-            username:m
+        <div class="nav_btns" id="m">
+                <button data-modal-target="#login" class="login_btn">
+                    Login 
+                </button>
+                <div class="login" id="login">
+                    <div class="header">
+                        <div class="login_title">Login</div>
+                        <div class="signup_title">SignUp</div>
+                        <button data-close-btn class="close_btn">&times;</button>
+                    </div>
+                    <div class="login_body">
+                        <form action="/login" method="POST">
+                            <input type="text" name="login" class="username" placeholder="username">
+                            <input type="password" name="password" class="password" placeholder="password">
+                            <button class="login_now">login</button>
+                        </form>
+                    </div>
+                    <div class="signup_body">
+                        <form action="/signup" method="POST">
+                            <input type="text" name="signup" class="username" placeholder="username">
+                            <input type="password" name="password" class="password" placeholder="password">
+                            <button class="signup_now">sign up</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div id="overlay"></div>
+                
         </div>    
 
         <!-- <button>sign OUT</button> -->
@@ -53,7 +79,7 @@
         <div class="questions_display">
 
             <div class="m"  data-uniqueid="14201363-1171-4427-8d99-b6e3d2cc1feb" 
-            question>
+            data-question>
                     <div class="ques_info">
                         <div class="ques_user">posted by: m</div>
                         <div class="ques_date">posted on: date</div>
@@ -71,7 +97,7 @@
                     </div>
             </div>
             
-            <div class="m" data-uniqueid="093d0db6-e207-49d1-a4ce-c629573323d3" question>
+            <div class="m" data-uniqueid="093d0db6-e207-49d1-a4ce-c629573323d3" data-question>
                     <div class="ques_info">
                         <div class="ques_user">posted by: m</div>
                         <div class="ques_date">posted on: date</div>
@@ -89,7 +115,7 @@
                     </div>
             </div>
 
-            <div class="mansha" data-uniqueid="f6b50aec-ded6-432a-bfce-e166f075ee0c" question>
+            <div class="mansha" data-uniqueid="f6b50aec-ded6-432a-bfce-e166f075ee0c" data-question>
                     <div class="ques_info">
                         <div class="ques_user">posted by: mansha</div>
                         <div class="ques_date">posted on: date</div>
@@ -107,7 +133,7 @@
                     </div>
             </div>
 
-            <div class="mansha" data-uniqueid="27b17ad1-d393-41f1-9d6d-55d41f07d453" question>
+            <div class="mansha" data-uniqueid="27b17ad1-d393-41f1-9d6d-55d41f07d453" data-question>
                     <div class="ques_info">
                         <div class="ques_user">posted by: mansha</div>
                         <div class="ques_date">posted on: date</div>
@@ -125,7 +151,7 @@
                     </div>
             </div>
 
-            <div class="mansha" data-uniqueid="8e336b49-d6a2-4885-8897-70284615ba1d" question>
+            <div class="mansha" data-uniqueid="8e336b49-d6a2-4885-8897-70284615ba1d" data-question>
                     <div class="ques_info">
                         <div class="ques_user">posted by: mansha</div>
                         <div class="ques_date">posted on: date</div>
@@ -147,7 +173,7 @@
     
     </div>
     
-    <!-- <script src="js/welcome.js"></script> -->
+    <script src="./scripts/script.js"></script>
 
 
 </body></html>
