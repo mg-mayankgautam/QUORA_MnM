@@ -1,1 +1,179 @@
-this is login page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quora</title>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+        <link rel="stylesheet" href="./styles/styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- <script src="test.js" type=module></script> -->
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="site_name">
+           <h1>Quora</h1> 
+        </div>
+    
+        <div class="search">
+             <form action="/searchquestion" method="POST"> 
+                <input type="text" name="newquestion" class="ques_input" id="m" placeholder="search anything">
+                <button class="search_question_btn">🔍</button>
+             </form> 
+        </div>
+
+        <div class="nav_btns" id="m">
+                <button data-modal-target="#login" class="login_btn">
+                    Login 
+                </button>
+                <div class="login active" id="login">
+                    <div class="header">
+                        <div class="login_title">Login</div>
+                        <div class="signup_title hide">SignUp</div>
+                        <button data-close-btn class="close_btn">&times;</button>
+                    </div>
+                    <div class="login_body">
+                        <form action="/login" method="POST">
+                            <input type="text" name="username" class="username" placeholder="username">
+                            <input type="password" name="password" class="password" placeholder="password">
+                            <button class="login_now">login</button>
+                        </form>
+                    </div>
+                    <div class="signup_body">
+                        <form action="/authentication/signup" method="POST">
+                            <input type="text" name="username" class="username" placeholder="username">
+                            <input type="password" name="password" class="password" placeholder="password">
+                            <button class="signup_now">sign up</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div id="overlay" class="active"></div>
+                
+        </div>    
+
+        <!-- <button>sign OUT</button> -->
+    </div>
+    
+    <div class="top_buttons">
+        <!-- <button class="back_btn">back</button> -->
+        
+        <div class="add_question">
+            <form action="/addquestion" method="POST">
+                <input type="text" name="newquestion" class="question_input" id="m" placeholder="POST A QUESTION">
+                <button class="add_question_btn">post</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- <div class="modal_div">
+        
+                <button class="my_questions_btn">my questions</button>
+                <button class="all_questions_btn">all questions</button>
+            
+    </div> -->
+  
+    <div class="output_div">
+
+        <div class="questions_display">
+
+            <div class="m"  data-uniqueid="14201363-1171-4427-8d99-b6e3d2cc1feb" 
+            data-question>
+                    <div class="ques_info">
+                        <div class="ques_user">posted by: m</div>
+                        <div class="ques_date">posted on: date</div>
+                        <button class="delete_btn">delete</button>
+                    </div>
+
+                    <div class="ques_text">
+                        what is AI? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos voluptatem eius quidem enim magni at porro iusto minima earum, quas ducimus deleniti quis, voluptatibus nesciunt explicabo consequatur delectus recusandae fugiat animi soluta placeat mollitia?     
+                    </div>
+                
+                    <div class="add_answer">
+                            <button class="add_answer_btn"> + add answer</button>
+                        
+                            <div class="answer_num">2 previous answers</div>
+                    </div>
+            </div>
+            
+            <div class="m" data-uniqueid="093d0db6-e207-49d1-a4ce-c629573323d3" data-question>
+                    <div class="ques_info">
+                        <div class="ques_user">posted by: m</div>
+                        <div class="ques_date">posted on: date</div>
+                        <button class="delete_btn">delete</button>
+                    </div>
+
+                    <div class="ques_text">
+                        when will gta 6 release?Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, cum.        
+                    </div>
+                
+                    <div class="add_answer">
+                            <button class="add_answer_btn"> + add answer</button>
+                        
+                            <div class="answer_num">2 previous answers</div>
+                    </div>
+            </div>
+
+            <div class="mansha" data-uniqueid="f6b50aec-ded6-432a-bfce-e166f075ee0c" data-question>
+                    <div class="ques_info">
+                        <div class="ques_user">posted by: mansha</div>
+                        <div class="ques_date">posted on: date</div>
+                        <!-- <button class="del_btn">delete</button> -->
+                    </div>
+
+                    <div class="ques_text">
+                        what is AI?               
+                    </div>
+                
+                    <div class="add_answer">
+                            <button class="add_answer_btn"> + add answer</button>
+                        
+                            <div class="answer_num">2 previous answers</div>
+                    </div>
+            </div>
+
+            <div class="mansha" data-uniqueid="27b17ad1-d393-41f1-9d6d-55d41f07d453" data-question>
+                    <div class="ques_info">
+                        <div class="ques_user">posted by: mansha</div>
+                        <div class="ques_date">posted on: date</div>
+                        <!-- <button class="del_btn">delete</button> -->
+                    </div>
+
+                    <div class="ques_text">
+                        do i look like a goat?            
+                    </div>
+                
+                    <div class="add_answer">
+                            <button class="add_answer_btn"> + add answer</button>
+                        
+                            <div class="answer_num">2 previous answers</div>
+                    </div>
+            </div>
+
+            <div class="mansha" data-uniqueid="8e336b49-d6a2-4885-8897-70284615ba1d" data-question>
+                    <div class="ques_info">
+                        <div class="ques_user">posted by: mansha</div>
+                        <div class="ques_date">posted on: date</div>
+                        <!-- <button class="del_btn">delete</button> -->
+                    </div>
+
+                    <div class="ques_text">
+                        does he like me?             
+                    </div>
+                
+                    <div class="add_answer">
+                            <button class="add_answer_btn">+ add answer</button>
+                        
+                            <div class="answer_num">2 previous answers</div>
+                    </div>
+            </div>
+            
+        </div>
+    
+    </div>
+    
+    <script src="./scripts/script.js"></script>
+
+
+</body></html>
