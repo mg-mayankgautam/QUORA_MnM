@@ -10,13 +10,18 @@ const { mongoConnect } = require('./database/database.js');
 const session = require('express-session')
 const MongoDBsession = require('connect-mongodb-session')(session);
 
-app.set('view engine', 'hbs');
+
+// app.set('views',path.join(__dirname, 'views'));
+app.set('view engine','hbs');
 
 
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyparser.json()); 
 app.use(express.json());
-app.use('/', express.static(path.join(__dirname, 'public')));
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+//app.use('/', express.static(path.join(__dirname, 'public')));
 
 const store = new MongoDBsession({
     uri:'mongodb://127.0.0.1:27017/quoraMnM',

@@ -1,4 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+
+
+
 
 body{
     margin: auto;
@@ -6,6 +9,7 @@ body{
     font-family: 'Poppins', sans-serif;
     background-color: #F2F2F2;
 }
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
 
 .navbar{
     display: flex;
