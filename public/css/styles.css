@@ -14,6 +14,7 @@ body{
 
 .navbar{
     display: flex;
+    color: white;
     background-color: #1d273d;
     height: 40px;
     justify-content:space-between;
