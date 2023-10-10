@@ -29,22 +29,54 @@ body{
     margin-left: auto;
 }
 
-.nav_btns{
-    margin-right: 30px;
-    color: white;
+.search_icon{
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    margin: 0;
 }
-.login_btn{
-    background-color: white;
-    color: #1d273d;
-    font-weight: bolder;
-    font-size: medium;
+button.search_question_btn{
+    padding: 3px;
+    margin: 0;
+    width: 33.4px;
+    height: 33.4px;
 }
 
-.modal_div{
+.profile{
+    margin-right: 30px;
+    color: white;
     display: flex;
-    gap:10px;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin: 1px 30px;
+    /* position: relative;
+    display: inline-block; */
+}
+
+.dropdown{
+    /* display: none; */
+    position: absolute;
+    background-color: #9d9d9d;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown *:hover{
+    background-color: #F2F2F2;
+}
+
+.user_img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.user_img:hover .dropdown{
+    display: block;
+    
+}
+.username{
+    font-size: small;
 }
 
 input{
@@ -90,10 +122,6 @@ button{
     cursor: pointer;
     background-color: #1d273d;
     color: white;
-    }
-
-.output_div{
-    /* margin-left:30px; */
     }
 
 .questions_display{
@@ -164,101 +192,5 @@ button.delete_btn{
     padding: 8px 8px;
     border-radius: 5px;
     border: 1px solid #9d9d9d;
-
-}
-
-.login {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    transition: 200ms ease-in-out; ;
-    border: none;
-    /* border-radius: 10px; */
-    z-index: 10; /* to make it look higher */
-    background-color: white;
-    width: 500px;
-    max-width: 80%;
-    color: black;
-}
-.login.active{
-    transform: translate(-50%, -50%) scale(1);
-} 
-.header{
-    padding: 0px 15px;
-    display: flex;
-    gap: 20px;
-    justify-content: space-between;
-    align-content: center;
-    font-size: 1.25rem;
-    font-weight: bold;
-    background-color:#c8c8c8;
-}
-.login_title{
-    padding: 10px 20px;
-    background-color: white;
-    border-radius: 10px;
-    border-bottom-left-radius:0 ;
-    border-bottom-right-radius: 0;
-    cursor: pointer;
-}
-
-.signup_title{
-    padding: 10px 20px;
-    background-color: white;
-    border-radius: 10px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius:0 ;
-    cursor: pointer;
-}
-.hide{
-    padding: 10px 20px;
-    border-radius: 10px;
-    background-color:#c8c8c8 ;
-}
-
-.header .close_btn {
-    margin-left: auto;
-    cursor: pointer;
-    border:none;
-    outline: none;
-    background: none;
-    color: black;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-.signup_body{
-    padding: 25px 15px 30px;
-}
-.login_body{
-    padding: 25px 15px 30px;
-}
-
-form[action='/login']{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-form[action='/authentication/signup']{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    }
-
-#overlay{
-    position: fixed;
-    opacity: 0;
-    transition: 200ms ease-in-out;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5);
-    pointer-events: none;
-}
-
-#overlay.active{
-    opacity: 1;
-    pointer-events: all;
 
 }
