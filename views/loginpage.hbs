@@ -1,13 +1,283 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>quora</title>
-        <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
-        <link rel="stylesheet" href="./styles/styles.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- <script src="test.js" type=module></script> -->
+      
+      
+        <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link  rel="stylesheet" href="css/loginpage.css" > 
+       
+        <style>
+            
+
+
+
+
+body{
+    margin: auto;
+    max-width: 100% ;
+    font-family: 'Poppins', sans-serif;
+    background-color: #F2F2F2;
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+.navbar{
+    display: flex;
+    background-color: #1d273d;
+    height: 40px;
+    justify-content:space-between;
+    align-items: center;
+    min-height: 80px;
+    gap: 30px;
+}
+.site_name{
+    margin: 30px;
+    color: white;
+}
+
+.search{
+    margin-left: auto;
+}
+
+.nav_btns{
+    margin-right: 30px;
+    color: white;
+}
+.login_btn{
+    background-color: white;
+    color: #1d273d;
+    font-weight: bolder;
+    font-size: medium;
+}
+
+.modal_div{
+    display: flex;
+    gap:10px;
+    align-items: center;
+    margin: 1px 30px;
+}
+
+input{
+    border: 1px solid #9d9d9d;
+    border-radius: 5px;
+    padding: 8px 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    }
+
+form[action='/addquestion']{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-grow: 1;
+    }
+
+input[class=question_input]{
+    flex-grow: 1;
+    }
+
+.top_buttons{
+    margin:20px 0px;
+    display: flex;
+    /* gap: 15px; */
+    justify-content: center;
+    align-items: center;
+    /* width: 600px; */
+    /* max-width: 75%; */
+    }
+
+.add_question{
+    /* flex-grow: 1; */
+    max-width: 75%;
+    width: 800px;
+    }
+    
+button{
+    align-content: center;
+    padding: 8px 8px;
+    border-radius: 5px;
+    border: 1px solid #9d9d9d;
+    cursor: pointer;
+    background-color: #1d273d;
+    color: white;
+    }
+
+.output_div{
+    /* margin-left:30px; */
+    }
+
+.questions_display{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 30px 0px 50px;
+    align-items: center;
+    }
+
+[data-question]{
+    width: 800px;
+    max-width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    background-color: white;
+    min-height: 100px;
+    /* border: solid 1px #9da5a3; */
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.ques_info{
+    display: flex;
+    gap:30px;
+    justify-content: right;
+    font-size: small;
+    align-items: center;
+}
+.ques_text{
+    font-size: medium;
+    font-weight: bold;
+}
+.answer_num{
+    font-size: small;
+}
+
+[answer]{
+    display: flex;
+    flex-direction: column;
+    min-height: 100px;
+    border: solid 1px #9da5a3;
+    padding: 10px 15px;
+    border-radius: 5px;
+    gap: 50px;
+}
+
+form[action='/addanswer']{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.add_answer{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: space-between;
+}
+
+.ans_info{
+    display: flex;
+    gap:40px;
+    justify-content: right;
+}
+
+button.delete_btn{
+    padding: 8px 8px;
+    border-radius: 5px;
+    border: 1px solid #9d9d9d;
+
+}
+
+.login {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out; ;
+    border: none;
+    /* border-radius: 10px; */
+    z-index: 10; /* to make it look higher */
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+    color: black;
+}
+.login.active{
+    transform: translate(-50%, -50%) scale(1);
+} 
+.header{
+    padding: 0px 15px;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-content: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+    background-color:#c8c8c8;
+}
+.login_title{
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 10px;
+    border-bottom-left-radius:0 ;
+    border-bottom-right-radius: 0;
+    cursor: pointer;
+}
+
+.signup_title{
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius:0 ;
+    cursor: pointer;
+}
+.hide{
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color:#c8c8c8 ;
+}
+
+.header .close_btn {
+    margin-left: auto;
+    cursor: pointer;
+    border:none;
+    outline: none;
+    background: none;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.signup_body{
+    padding: 25px 15px 30px;
+}
+.login_body{
+    padding: 25px 15px 30px;
+}
+
+form[action='/login']{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+form[action='/signup']{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    }
+
+#overlay{
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    pointer-events: none;
+}
+
+#overlay.active{
+    opacity: 1;
+    pointer-events: all;
+
+}
+
+        </style>
+        
 </head>
 
 <body>
@@ -173,7 +443,9 @@
     
     </div>
     
-    <script src="./scripts/script.js"></script>
+    <script src="/scripts/loginpage.js"></script>
 
 
-</body></html>
+</body>
+</html>
+
