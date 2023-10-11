@@ -4,11 +4,211 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>quora</title>
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="/css/homepage.css">
+     
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <style>
+
+
+
+
+body{
+    margin: auto;
+    max-width: 100% ;
+    font-family: 'Poppins', sans-serif;
+    background-color: #F2F2F2;
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+.navbar{
+    display: flex;
+    background-color: #1d273d;
+    height: 40px;
+    justify-content:space-between;
+    align-items: center;
+    min-height: 80px;
+    gap: 30px;
+}
+.site_name{
+    margin: 30px;
+    color: white;
+}
+
+.search{
+    margin-left: auto;
+}
+
+.search_icon{
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    margin: 0;
+}
+button.search_question_btn{
+    padding: 3px;
+    margin: 0;
+    width: 33.4px;
+    height: 33.4px;
+}
+
+.profile{
+    margin-right: 30px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* position: relative;
+    display: inline-block; */
+}
+
+.dropdown{
+    /* display: none; */
+    position: absolute;
+    background-color: #9d9d9d;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown *:hover{
+    background-color: #F2F2F2;
+}
+
+.user_img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.user_img:hover .dropdown{
+    display: block;
+    
+}
+.username{
+    font-size: small;
+}
+
+input{
+    border: 1px solid #9d9d9d;
+    border-radius: 5px;
+    padding: 8px 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    }
+
+form[action='/addquestion']{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-grow: 1;
+    }
+
+input[class=question_input]{
+    flex-grow: 1;
+    }
+
+.top_buttons{
+    margin:20px 0px;
+    display: flex;
+    /* gap: 15px; */
+    justify-content: center;
+    align-items: center;
+    /* width: 600px; */
+    /* max-width: 75%; */
+    }
+
+.add_question{
+    /* flex-grow: 1; */
+    max-width: 75%;
+    width: 800px;
+    }
+    
+button{
+    align-content: center;
+    padding: 8px 8px;
+    border-radius: 5px;
+    border: 1px solid #9d9d9d;
+    cursor: pointer;
+    background-color: #1d273d;
+    color: white;
+    }
+
+.questions_display{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 30px 0px 50px;
+    align-items: center;
+    }
+
+[data-question]{
+    width: 800px;
+    max-width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    background-color: white;
+    min-height: 100px;
+    /* border: solid 1px #9da5a3; */
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.ques_info{
+    display: flex;
+    gap:30px;
+    justify-content: right;
+    font-size: small;
+    align-items: center;
+}
+.ques_text{
+    font-size: medium;
+    font-weight: bold;
+}
+.answer_num{
+    font-size: small;
+}
+
+[answer]{
+    display: flex;
+    flex-direction: column;
+    min-height: 100px;
+    border: solid 1px #9da5a3;
+    padding: 10px 15px;
+    border-radius: 5px;
+    gap: 50px;
+}
+
+form[action='/addanswer']{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.add_answer{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: space-between;
+}
+
+.ans_info{
+    display: flex;
+    gap:40px;
+    justify-content: right;
+}
+
+button.delete_btn{
+    padding: 8px 8px;
+    border-radius: 5px;
+    border: 1px solid #9d9d9d;
+
+}
+        </style>
 </head>
 
 <body>
+
     <div class="navbar">
         <div class="site_name">
            <h1>Quora</h1> 
@@ -17,17 +217,17 @@
         <div class="search">
              <form action="/searchquestion" method="POST"> 
                 <input type="text" name="newquestion" class="ques_input" id="m" placeholder="search anything">
-                <button class="search_question_btn"><img class="search_icon" src="/public/media/search-icon.png" alt="search"></button>
+                <button class="search_question_btn"><img class="search_icon" src="/media/search-icon.png" alt="https://w7.pngwing.com/pngs/597/398/png-transparent-forest-lake-computer-icons-inspection-white-wine-search-bar-thumbnail.png"></button>
              </form> 
         </div>
 
         <div class="profile">
             {{!-- <img class="user_img" src="https://www.svgrepo.com/show/382095/female-avatar-girl-face-woman-user-4.svg" alt="Avatar"> --}}
-            <div class="username">username</div>
+            <div class="username">{{username}}</div>
         </div>  
 
         <div class="dropdown">
-            <form action="">
+            <form action="/authentication/logout" method="GET">
                 <button class="signout">Sign Out</button>
             </form>
         </div>
@@ -38,8 +238,8 @@
         <!-- <button class="back_btn">back</button> -->
         
         <div class="add_question">
-            <form action="/addquestion" method="POST">
-                <input type="text" name="newquestion" class="question_input" id="m" placeholder="POST A QUESTION">
+            <form action="/homepage/addquestion" method="POST">
+                <input type="text" name="question" class="question_input" id="m" placeholder="POST A QUESTION">
                 <button class="add_question_btn">post</button>
             </form>
         </div>
@@ -145,7 +345,10 @@
     
     </div>
     
-    <!-- <script src="js/welcome.js"></script> -->
+    
 
+    <script src="/scripts/homepage.js"></script>
 
-</body></html>
+</body>
+
+</html>

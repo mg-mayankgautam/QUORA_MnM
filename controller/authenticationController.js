@@ -2,10 +2,12 @@
 const userDB = require("../models/authenticationDB");
 
 
+
+
 module.exports.signup = async (req,res)=>{
    
    
-   const {username,password} = req.body
+   const {username,password} = req.body;
    
    let user = await userDB.findOne({username});
 
@@ -15,33 +17,50 @@ module.exports.signup = async (req,res)=>{
    let newuser = new userDB ({username,password});
    newuser.save()
     .then(()=>{
-        console.log('user addes success');
+        
+        
+
+      //  console.log('user addes success');
         res.render('loginpage');
     })
     .catch(err =>{console.log(err);});
 }
 
 module.exports.login = async (req, res) => {
-    console.log('idhar tak aya',req.body);
-   const {username,password} = req.body
+  //  console.log('idhar tak aya',req.body);
+    const {username,password} = req.body
 
-   let user = await userDB.findOne({username});
+    let user = await userDB.findOne({username});
 
-   if(!user){res.render('loginpage');}
+     if(!user){res.render('loginpage');}
 
-   let verified = await userDB.findOne({
-    username: username,
-    password: password,
+        let verified = await userDB.findOne({
+                username: username,
+                password: password,
     
-});
+        });
 
-if(!verified){res.render('loginpage');}
+    if(!verified){res.render('loginpage');}
 
-else if(verified) {res.render('homepage');}
+    else if(verified) {
+        req.session.authorised=true;
+        req.session.user=user;
+      //  console.log('iske aage kyu nii hora');
+        res.redirect('/homepage')
+    }
 
-   // console.log(verified);
 
-   //let passwordfromDB = await userDB.findOne({user}).then.get({password});
      
     
+};
+
+module.exports.logout = (req, res) => {
+    console.log('logout mei aa gaaya')
+   
+
+   
+
+
+    req.session.destroy();
+    res.redirect('/');
 };

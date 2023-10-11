@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const app= express();
-const PORT = 5000;
+const PORT = 4700;
 const hbs = require('hbs');
 const bodyparser = require('body-parser');//use with axios 
 const mongoose = require('mongoose');
@@ -39,10 +39,12 @@ app.use(
 
 
 
+const homepageRouter = require('./routes/homepage.js');
 
-
+app.use('/homepage', homepageRouter);
 
 const authenticationRouter = require('./routes/authentication.js');
+
 //hbs.registerPartials(__dirname + '/views/partials');
 app.use('/authentication', authenticationRouter);
 //netstat -ano | findstr :5000
