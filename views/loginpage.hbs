@@ -42,6 +42,19 @@ body{
 .search{
     margin-left: auto;
 }
+.search_icon{
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    margin: 0;
+}
+button.search_question_btn{
+    padding: 3px;
+    margin: 0;
+    width: 33.4px;
+    height: 33.4px;
+}
 
 .nav_btns{
     margin-right: 30px;
@@ -291,7 +304,7 @@ form[action='/authentication/signup']{
         <div class="search">
              <form action="/searchquestion" method="POST"> 
                 <input type="text" name="newquestion" class="ques_input" id="m" placeholder="search anything">
-                <button class="search_question_btn">🔍</button>
+                <button class="search_question_btn"><img class="search_icon" src="/public/media/search-icon.png"></button>
              </form> 
         </div>
 

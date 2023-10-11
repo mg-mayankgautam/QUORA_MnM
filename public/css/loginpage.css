@@ -31,6 +31,20 @@ body{
     margin-left: auto;
 }
 
+.search_icon{
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    margin: 0;
+}
+button.search_question_btn{
+    padding: 3px;
+    margin: 0;
+    width: 33.4px;
+    height: 33.4px;
+}
+
 .nav_btns{
     margin-right: 30px;
     color: white;
