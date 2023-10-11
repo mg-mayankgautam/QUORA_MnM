@@ -109,10 +109,6 @@ button{
     color: white;
     }
 
-.output_div{
-    /* margin-left:30px; */
-    }
-
 .questions_display{
     display: flex;
     flex-direction: column;
@@ -126,7 +122,7 @@ button{
     max-width: 75%;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
     background-color: white;
     min-height: 100px;
     /* border: solid 1px #9da5a3; */
@@ -139,14 +135,57 @@ button{
     gap:30px;
     justify-content: right;
     font-size: small;
-    align-items: center;
+    align-items: baseline;
+    opacity: .75;
 }
 .ques_text{
     font-size: medium;
     font-weight: bold;
+    margin-bottom: 25px;
 }
+
+.drop{
+    position: relative;
+}
+
+.settings{ 
+    /* button */
+    background: none;
+    border: none;
+    color: black;
+    padding: 0;
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+.menu{
+    position: absolute;
+    /* left: 0; */
+    top: calc(100% + .5rem);
+    background-color: white;
+    padding: .75rem;
+    border-radius: .5rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(-10px) ;
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+    pointer-events: none;
+}
+
+.menu button {
+    width: 80px;
+}
+/* use :focus for trials of active class */
+
+.drop.active > .settings + .menu{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
 .answer_num{
     font-size: small;
+    opacity: .75;
 }
 
 [answer]{
