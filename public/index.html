@@ -7,7 +7,7 @@
         <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
         <link rel="stylesheet" href="./css/styles.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- <script src="test.js" type=module></script> -->
+        
 </head>
 
 <body>
@@ -82,7 +82,13 @@
                     <div class="ques_info">
                         <div class="ques_user">posted by: m</div>
                         <div class="ques_date">posted on: date</div>
-                        <button class="delete_btn">delete</button>
+                        <div class="drop" data-dropdown>
+                            <button class="settings" data-dropdown-btn>...</button>
+                            <div class="menu">
+                                <button class="delete_btn">delete</button>
+                                <button>edit</button>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="ques_text">
