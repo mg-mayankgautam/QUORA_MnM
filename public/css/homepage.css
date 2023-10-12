@@ -153,7 +153,7 @@ button{
     justify-content: right;
     font-size: small;
     align-items: baseline;
-    opacity: .75;
+    /* opacity: .75; */
 }
 .ques_text{
     font-size: medium;
@@ -202,7 +202,7 @@ button{
 
 .answer_num{
     font-size: small;
-    opacity: .75;
+    /* opacity: .75; */
 }
 
 .answer{
