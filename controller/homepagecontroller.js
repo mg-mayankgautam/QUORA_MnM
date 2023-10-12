@@ -47,13 +47,29 @@ module.exports.addquestion = async (req,res)=>{
 module.exports.getquestions = async (req, res)=>{
 
 
-   const currentUser =req.session.user.username;
+const currUser =req.session.user.username;
 
  
-   const allQuestions = await questionDB.find({}).select({ "question": 1, "_id": 0});
+   const allQuestions = await questionDB.find({}).select({ "currentUser":1, "question": 1, "_id": 1});
  
+//    if(!currUser){res.send({allQuestions});
+//   }
 
-res.send(allQuestions);
+   // else(!currUser){
+   //    }
 
+      res.send({allQuestions,currUser});
+};
 
+module.exports.landingQuestions = async (req, res)=>{
+
+   const allQuestions = await questionDB.find({}).select({ "currentUser":1, "question": 1, "_id": 1});
+ 
+//    if(!currUser){res.send({allQuestions});
+//   }
+
+   // else(!currUser){
+   //    }
+
+      res.send({allQuestions});
 };
