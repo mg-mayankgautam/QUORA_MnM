@@ -117,7 +117,7 @@ button{
     align-items: center;
     }
 
-[data-question]{
+.question{
     width: 800px;
     max-width: 75%;
     display: flex;
@@ -188,7 +188,7 @@ button{
     opacity: .75;
 }
 
-[answer]{
+.answer{
     display: flex;
     flex-direction: column;
     min-height: 100px;
