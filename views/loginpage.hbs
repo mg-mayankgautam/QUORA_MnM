@@ -82,7 +82,7 @@ input{
     box-sizing: border-box;
     }
 
-form[action='/addquestion']{
+.add_question > form{
     display: flex;
     gap: 8px;
     align-items: center;
@@ -131,7 +131,7 @@ button{
     align-items: center;
     }
 
-[data-question]{
+.question{
     width: 800px;
     max-width: 75%;
     display: flex;
@@ -202,7 +202,7 @@ button{
     
 }
 
-[answer]{
+.answer{
     display: flex;
     flex-direction: column;
     min-height: 100px;
@@ -351,7 +351,7 @@ form[action='/authentication/signup']{
              </form> 
         </div>
 
-        <div class="nav_btns" id="m">
+        <div class="nav_btns">
                 <button data-modal-target="#login" class="login_btn">
                     Login 
                 </button>
@@ -388,19 +388,13 @@ form[action='/authentication/signup']{
         <!-- <button class="back_btn">back</button> -->
         
         <div class="add_question">
-            <form action="/addquestion" method="POST">
-                <input type="text" name="newquestion" class="question_input" id="m" placeholder="POST A QUESTION">
-                <button class="add_question_btn">post</button>
+            <!-- <form action="/addquestion" method="POST" data-modal-target="#login"> -->
+            <form method="POST" data-modal-target="#login">
+                <input type="text" name="newquestion" class="question_input" placeholder="POST A QUESTION">
+                <!-- <button class="add_question_btn" data-modal-target="#login">post</button> -->
             </form>
         </div>
     </div>
-
-    <!-- <div class="modal_div">
-        
-                <button class="my_questions_btn">my questions</button>
-                <button class="all_questions_btn">all questions</button>
-            
-    </div> -->
   
     <div class="output_div">
 
