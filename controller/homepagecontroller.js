@@ -24,13 +24,7 @@ module.exports.addquestion = async (req,res)=>{
    //console.log('username',req.session.user.username)
    const currentUser =req.session.user.username;
 
-   // let currentuserDB = await questionDB.findOne({username: currentUser})
-   //    .then(()=>{//let newquestion = 
-      
-   //       console.log(currentuserDB);
-   //    })
-      
-   //console.log(question,currentUser);
+   
 
    let newquestion = new questionDB ({currentUser,question});
    newquestion.save()
@@ -72,4 +66,17 @@ module.exports.landingQuestions = async (req, res)=>{
    //    }
 
       res.send({allQuestions});
+};
+
+module.exports.deletequestion= async (req, res)=>{
+
+   const {quesID} = req.body;
+   //console.log(req.body);
+   try{
+   await questionDB.findByIdAndDelete(quesID);
+   res.redirect('/homepage/getquestions');
+   }
+   catch(err){}
+
+
 };

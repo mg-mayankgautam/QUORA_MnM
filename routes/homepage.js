@@ -11,4 +11,6 @@ router.post('/addquestion',homepagecontroller.addquestion);
 
 router.get('/getquestions',homepagecontroller.getquestions);
 
+router.post('/deletequestion',homepagecontroller.deletequestion);
+
 module.exports = router;
