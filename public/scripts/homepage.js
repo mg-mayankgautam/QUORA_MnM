@@ -14,29 +14,8 @@ function addtopage(data){
 
     output_div.innerHTML = '';
 
-                    // <div class="question">
-                    //     <div class="ques_info">
-                    //         <div class="ques_user">posted by: m</div>
-                    //         <div class="ques_date">posted on: date</div>
-                    //         <div class="drop" data-dropdown=''>
-                    //             <button class="settings" data-dropdown_btn=''>...</button>
-                    //             <div class="menu">
-                    //                 button delete
-                                        // button edit 
-                    //             </div>
-                    //         </div>
-                    //     </div>
-
-                    //     <div class="ques_text">
-                    //         what is AI? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos voluptatem eius quidem enim magni at porro iusto minima earum, quas ducimus deleniti quis, voluptatibus nesciunt explicabo consequatur delectus recusandae fugiat animi soluta placeat mollitia?     
-                    //     </div>
-                    
-                    //     <div class="add_answer">
-                    //             <button class="add_answer_btn"> + add answer</button>
-                            
-                    //             <div class="answer_num">2 previous answers</div>
-                    //     </div>
-                    // </div> 
+                   
+         
         
 
         for(let i=0; i<dataarray.length; i++){
@@ -168,3 +147,25 @@ document.addEventListener('click', e =>{
         dropdown.classList.remove('active')
     })
 })
+
+//const delete_btn = document.querySelectorAll('.delete_btn');
+
+
+output_div.addEventListener('click', async (e) => {
+if(e.target.className=='delete_btn'){
+
+console.log(e.target.id);
+
+try{
+  let data = await axios.post('/homepage/deletequestion',{
+            quesID:e.target.id
+
+  }) 
+  //console.log(data); 
+  addtopage(data);
+}
+catch(e) {};
+
+}
+
+});

@@ -185,8 +185,8 @@ async function getquestions(){
     //console.log("attachrd")
 
                         try{
-                        let data = await axios.get('/authentication/getquestions')
-                        console.log('get questions aa gaya',data);
+                        let data = await axios.get('/authentication/getquestions',)
+                       // console.log('get questions aa gaya',data);
                         addtopage(data);
                         }
                         catch (e) {};
