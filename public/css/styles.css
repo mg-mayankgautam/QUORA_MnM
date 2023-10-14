@@ -72,7 +72,7 @@ input{
     box-sizing: border-box;
     }
 
-form[action='/addquestion']{
+.add_question > form{
     display: flex;
     gap: 8px;
     align-items: center;

@@ -148,10 +148,12 @@ function addtopage(data){
         
            const add_answer = document.createElement("div");
            add_answer.classList.add("add_answer");
+        //    data-modal-target="#login"
         
            const add_answer_btn = document.createElement("button");
            add_answer_btn.classList.add("add_answer_btn");
            add_answer_btn.innerText='add answer';
+           add_answer_btn.dataset.modalTarget='#login';
         
            const answer_num = document.createElement("div");
            answer_num.classList.add("answer_num");
