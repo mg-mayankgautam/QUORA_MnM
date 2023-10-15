@@ -85,7 +85,7 @@ module.exports.deletequestion = async (req, res)=>{
 
 module.exports.getcurrentquestion = async (req,res) => {
 
-   console.log('jei',req.query);
+  // console.log('jei',req.query);
 
    const {id}=req.query;
 
@@ -104,14 +104,24 @@ module.exports.addanswer = async (req, res) => {
    const currquestion= req.body.currquestionID;
    const currentUser = req.session.user.username;
    //console.log('currquestionID',currquestionID);
-   let newanswer = new answersDB ({currentUser,answer,answer});
+   let newanswer = new answersDB ({currentUser,currquestion,answer});
    newanswer.save()
     .then(()=>{
-        console.log('answer added success');
+       // console.log('answer added success');
         res.redirect('/homepage/getquestions');
     })
     .catch(err =>{console.log(err);});
-   // currentUser: {type:String},
-   // questionid: {type:String},
-   // answer: {type:String},
+   
+}
+
+module.exports.getallquestions= async (req, res) =>{
+
+  const currQuestionID = req.query.id;
+  console.log(currQuestionID);
+
+  const answers = await answersDB.find({currquestion:currQuestionID })
+
+  res.send(answers);
+  console.log(answers);
+   
 }

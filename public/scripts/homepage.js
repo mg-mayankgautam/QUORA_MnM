@@ -211,7 +211,7 @@ output_div.addEventListener('click', async (e) => {
           });
 
 
-          console.log(currentquestion.data.question,currentquestion.data._id);
+        console.log(currentquestion.data.question,currentquestion.data._id);
 
         const questiontext = document.createElement('div');
         questiontext.classList.add('questiontext');
@@ -220,6 +220,11 @@ output_div.addEventListener('click', async (e) => {
         questiontext.id=currentquestion.data._id;
         output_div.appendChild(questiontext);
 
+        let allanswers = await axios.get('/homepage/getanswers',{
+            params: {
+              id: String(e.target.id)
+            }
+          });
         
 
     }

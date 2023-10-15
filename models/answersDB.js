@@ -6,11 +6,11 @@ const {Schema}=mongoose;
 
 const answerSchema = new Schema({
     currentUser: {type:String},
-    question: {type:String},
+    currquestion: {type:mongoose.Schema.Types.ObjectId},
     answer: {type:String},
 
 
-
+//{currentUser,currquestion,answer}
     
 
 });
