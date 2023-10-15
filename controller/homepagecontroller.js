@@ -1,5 +1,7 @@
 
 const questionDB = require("../models/questionDB");
+const answersDB = require("../models/answersDB");
+
 
 
 module.exports.loadhomepage =  (req,res)=>{
@@ -68,7 +70,7 @@ module.exports.landingQuestions = async (req, res)=>{
       res.send({allQuestions});
 };
 
-module.exports.deletequestion= async (req, res)=>{
+module.exports.deletequestion = async (req, res)=>{
 
    const {quesID} = req.body;
    //console.log(req.body);
@@ -80,3 +82,36 @@ module.exports.deletequestion= async (req, res)=>{
 
 
 };
+
+module.exports.getcurrentquestion = async (req,res) => {
+
+   console.log('jei',req.query);
+
+   const {id}=req.query;
+
+   const currquestion = await questionDB.findById(id);
+
+   res.send(currquestion)
+
+
+
+
+};
+
+module.exports.addanswer = async (req, res) => {
+   
+   const {answer}= req.body;
+   const currquestion= req.body.currquestionID;
+   const currentUser = req.session.user.username;
+   //console.log('currquestionID',currquestionID);
+   let newanswer = new answersDB ({currentUser,answer,answer});
+   newanswer.save()
+    .then(()=>{
+        console.log('answer added success');
+        res.redirect('/homepage/getquestions');
+    })
+    .catch(err =>{console.log(err);});
+   // currentUser: {type:String},
+   // questionid: {type:String},
+   // answer: {type:String},
+}

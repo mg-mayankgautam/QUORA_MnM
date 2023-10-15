@@ -13,4 +13,10 @@ router.get('/getquestions',homepagecontroller.getquestions);
 
 router.post('/deletequestion',homepagecontroller.deletequestion);
 
+router.get('/getcurrentquestion',homepagecontroller.getcurrentquestion);
+
+router.post('/addanswer',homepagecontroller.addanswer);
+
+
+
 module.exports = router;

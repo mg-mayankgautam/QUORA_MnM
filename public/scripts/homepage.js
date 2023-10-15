@@ -26,10 +26,15 @@ function addtopage(data){
         
            const question = document.createElement("div");
            question.classList.add("question")
+           question.id= dataarray[i]._id;
+
+           
            // question_div.dataset.uniqueid=questions[i].Q_id;
         
            const ques_info = document.createElement("div");
            ques_info.classList.add("ques_info");
+           ques_info.id= dataarray[i]._id;
+           
         
            const ques_user = document.createElement("div");
            ques_user.classList.add("ques_user");
@@ -69,12 +74,16 @@ function addtopage(data){
            const ques_text = document.createElement("div");
            ques_text.classList.add("ques_text");
            ques_text.innerHTML= dataarray[i].question;
+           ques_text.id= dataarray[i]._id;
+
+
         
            const add_answer = document.createElement("div");
            add_answer.classList.add("add_answer");
-        
+           add_answer.id= dataarray[i]._id;
            const add_answer_btn = document.createElement("button");
            add_answer_btn.classList.add("add_answer_btn");
+          // add_answer_btn.id= dataarray[i]._id;
            add_answer_btn.innerText='add answer';
         
            const answer_num = document.createElement("div");
@@ -170,9 +179,10 @@ catch(e) {};
 
 });
 
-output_div.addEventListener('click',  (e) => {
+output_div.addEventListener('click', async (e) => {
     //if(e.target.className=='delete_btn'){
-    
+        console.log(e.target.id);
+
     //console.log(e.target.className);
     if(e.target.className=='question'   || 
      e.target.className=='ques_info'    ||
@@ -194,6 +204,23 @@ output_div.addEventListener('click',  (e) => {
         output_div.appendChild(answerinput);
         output_div.appendChild(answersubmit);
 
+        let currentquestion = await axios.get(`/homepage/getcurrentquestion`,{
+            params: {
+              id: String(e.target.id)
+            }
+          });
+
+
+          console.log(currentquestion.data.question,currentquestion.data._id);
+
+        const questiontext = document.createElement('div');
+        questiontext.classList.add('questiontext');
+
+        questiontext.innerHTML = currentquestion.data.question;
+        questiontext.id=currentquestion.data._id;
+        output_div.appendChild(questiontext);
+
+        
 
     }
 
@@ -219,17 +246,23 @@ getquestions();
 output_div.addEventListener('click', async (e) => {
 
 
-if (e.target.className=='answersubmit'){
-    const answerinput = document.querySelector('.answerinput');
 
-    console.log(answerinput.value);
-    
-    let data = axios.post('',{
-        //answerinput.value
+    if (e.target.className=='answersubmit'){
+        const answerinput = document.querySelector('.answerinput');
+        const currquestion = document.querySelector('.questiontext');
+      //  console.log('currquestion',currquestion);
+        try{
+        let data = await axios.post('/homepage/addanswer',{
+            answer: answerinput.value,
+            currquestionID: currquestion.id
+        })
+        answerinput.value = '';
+        console.log(data);}
 
-    })
+        catch(err){}
 
-}
+
+    }
 
 
 });
