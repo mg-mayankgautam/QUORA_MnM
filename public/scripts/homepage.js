@@ -169,3 +169,67 @@ catch(e) {};
 }
 
 });
+
+output_div.addEventListener('click',  (e) => {
+    //if(e.target.className=='delete_btn'){
+    
+    //console.log(e.target.className);
+    if(e.target.className=='question'   || 
+     e.target.className=='ques_info'    ||
+     e.target.className=='ques_text'    ||
+     e.target.className=='add_answer')
+    { 
+        output_div.innerHTML = '';
+        const homebtn = document.createElement('button');
+        homebtn.innerText = 'home';
+        homebtn.classList.add('homebtn');
+        output_div.appendChild(homebtn);
+        
+
+        const answerinput = document.createElement('input');
+        answerinput.classList.add('answerinput');
+        const answersubmit = document.createElement('button');
+        answersubmit.classList.add('answersubmit');
+        answersubmit.innerText='post answer';
+        output_div.appendChild(answerinput);
+        output_div.appendChild(answersubmit);
+
+
+    }
+
+
+
+    
+    });
+
+
+output_div.addEventListener('click',  (e) => {
+       
+
+    if(e.target.className=='homebtn'){
+getquestions();
+
+    }
+        
+    
+    
+        
+});    
+
+output_div.addEventListener('click', async (e) => {
+
+
+if (e.target.className=='answersubmit'){
+    const answerinput = document.querySelector('.answerinput');
+
+    console.log(answerinput.value);
+    
+    let data = axios.post('',{
+        //answerinput.value
+
+    })
+
+}
+
+
+});
