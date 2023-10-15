@@ -276,8 +276,7 @@ output_div.addEventListener('click', async (e) => {
 
         const answers_display = document.createElement("div");
         const h3 = document.createElement("h3");
-        h3.innerText='answers:';
-    
+        h3.innerText='answers:';    
      
         menu.appendChild(copy_link);
         drop.appendChild(settings);
@@ -297,7 +296,56 @@ output_div.addEventListener('click', async (e) => {
         output_div.appendChild(question);
 
         // const questiontext = document.createElement('div');
-        // questiontext.classList.add('questiontext');        
+        // questiontext.classList.add('questiontext');    
+        
+        for(let i=0; i<5; i++){
+
+            const answer = document.createElement('div');
+            answer.classList.add('answer');
+
+            const ans_info = document.createElement('div');
+            ans_info.classList.add('ans_info');
+            const ans_user = document.createElement('div');
+            ans_user.classList.add('ans_user');
+            const ans_date = document.createElement('div');
+            const drop = document.createElement("div");
+            drop.classList.add("drop");
+            drop.dataset.dropdown="div";
+            const settings= document.createElement("button");
+            settings.classList.add("settings");
+            settings.dataset.dropdown_btn='button';
+            settings.innerText='...';
+            const menu = document.createElement("div");
+            menu.classList.add("menu");    
+
+            const copy_link = document.createElement("button");
+            copy_link.classList.add("copy_link");
+            copy_link.innerText='Copy Link';
+            const delete_btn = document.createElement("button");
+            delete_btn.classList.add("delete_btn");
+            delete_btn.innerText="Delete";
+            // delete_btn.id= dataarray[i]._id;
+            const edit_btn = document.createElement("button");
+            edit_btn.classList.add("edit_btn");
+            edit_btn.innerText="Edit";
+
+            const ans_text = document.createElement("div");
+            ans_text.classList.add("ans_text");
+            ans_text.innerHTML = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos voluptatem eius quidem enim magni at porro iusto minima earum, quas ducimus deleniti quis, voluptatibus nesciunt explicabo consequatur delectus recusandae fugiat animi soluta placeat mollitia?"
+
+
+            menu.appendChild(copy_link);
+            menu.appendChild(delete_btn);
+            menu.appendChild(edit_btn);
+            drop.appendChild(settings);
+            drop.appendChild(menu);
+            ans_info.appendChild(ans_user);
+            ans_info.appendChild(ans_date);
+            ans_info.appendChild(drop);
+            answer.appendChild(ans_info);
+            answer.appendChild(ans_text);
+            answers_display.appendChild(answer);
+        }
 
     }
 
