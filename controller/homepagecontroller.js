@@ -122,6 +122,6 @@ module.exports.getallquestions= async (req, res) =>{
   const answers = await answersDB.find({currquestion:currQuestionID })
 
   res.send(answers);
-  console.log(answers);
+  //console.log(answers);
    
 }

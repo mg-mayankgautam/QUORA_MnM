@@ -159,7 +159,7 @@ document.addEventListener('click', e =>{
 
 //const delete_btn = document.querySelectorAll('.delete_btn');
 
-
+///delete button
 output_div.addEventListener('click', async (e) => {
 if(e.target.className=='delete_btn'){
 
@@ -178,6 +178,48 @@ catch(e) {};
 }
 
 });
+//delete button
+
+
+//get questions
+output_div.addEventListener('click',  (e) => {       
+
+    if(e.target.className=='homebtn'){
+    getquestions();
+    }        
+});    
+//get questions 
+
+
+//post answers
+output_div.addEventListener('click', async (e) => {
+
+
+
+    if (e.target.className=='add_answer_btn'){
+        e.preventDefault();
+        const answerinput = document.querySelector('.answerinput');
+        const currquestion = document.querySelector('.questiontext');
+        console.log('currquestion',currquestion);
+
+        try{
+        let data = await axios.post('/homepage/addanswer',{
+            answer: answerinput.value,
+            currquestionID: currquestion.id
+        })
+        answerinput.value = '';
+        console.log(data);}
+
+        
+
+    
+    catch(err){console.log(err);}
+
+
+    }
+});
+//post answers
+
 
 output_div.addEventListener('click', async (e) => {
     //if(e.target.className=='delete_btn'){
@@ -208,7 +250,7 @@ output_div.addEventListener('click', async (e) => {
           });
 
 
-        console.log(currentquestion.data.question,currentquestion.data._id);
+        //console.log(currentquestion.data.question,currentquestion.data._id);
 
 
         const question = document.createElement("div");
@@ -220,7 +262,7 @@ output_div.addEventListener('click', async (e) => {
      
         const ques_user = document.createElement("div");
         ques_user.classList.add("questionuser");
-        // ques_user.innerHTML= `asked by: ${dataarray[i].currentUser}`; 
+        
      
         const ques_date = document.createElement("div");
         ques_date.classList.add("ques_date");
@@ -241,17 +283,16 @@ output_div.addEventListener('click', async (e) => {
         copy_link.classList.add("copy_link");
         copy_link.innerText='Copy Link';
      
-    {
         const delete_btn = document.createElement("button");
         delete_btn.classList.add("delete_btn");
         delete_btn.innerText="Delete";
-        // delete_btn.id= dataarray[i]._id;
+        
         const edit_btn = document.createElement("button");
         edit_btn.classList.add("edit_btn");
         edit_btn.innerText="Edit";
         menu.appendChild(delete_btn);
         menu.appendChild(edit_btn);
-        }
+        
 
         const questiontext = document.createElement("div");
         questiontext.classList.add("questiontext");
@@ -275,6 +316,7 @@ output_div.addEventListener('click', async (e) => {
         answer_num.classList.add("answer_num");
 
         const answers_display = document.createElement("div");
+        answers_display.classList.add("answers_display");
         const h3 = document.createElement("h3");
         h3.innerText='answers:';    
      
@@ -298,10 +340,32 @@ output_div.addEventListener('click', async (e) => {
         // const questiontext = document.createElement('div');
         // questiontext.classList.add('questiontext');    
         
-        for(let i=0; i<5; i++){
+        let allanswers = await axios.get('/homepage/getanswers',{
+            params: {
+              id: String(e.target.id)
+            }
+          });
+        //console.log(allanswers);
+       addtopageanswers(allanswers);
 
-            const answer = document.createElement('div');
-            answer.classList.add('answer');
+    }
+
+
+
+    
+    });
+
+
+    function addtopageanswers(data){
+
+        console.log(data.data);
+        const dataarray =data.data
+        const answers_display = document.querySelector('.answers_display')
+        console.log(answers_display);
+        for(let i=0; i<dataarray.length; i++){
+
+            const answer_div = document.createElement('div');
+            answer_div.classList.add('answer');
 
             const ans_info = document.createElement('div');
             ans_info.classList.add('ans_info');
@@ -331,8 +395,7 @@ output_div.addEventListener('click', async (e) => {
 
             const ans_text = document.createElement("div");
             ans_text.classList.add("ans_text");
-            ans_text.innerHTML = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos voluptatem eius quidem enim magni at porro iusto minima earum, quas ducimus deleniti quis, voluptatibus nesciunt explicabo consequatur delectus recusandae fugiat animi soluta placeat mollitia?"
-
+            ans_text.innerHTML = dataarray[i].answer
 
             menu.appendChild(copy_link);
             menu.appendChild(delete_btn);
@@ -342,52 +405,8 @@ output_div.addEventListener('click', async (e) => {
             ans_info.appendChild(ans_user);
             ans_info.appendChild(ans_date);
             ans_info.appendChild(drop);
-            answer.appendChild(ans_info);
-            answer.appendChild(ans_text);
-            answers_display.appendChild(answer);
+            answer_div.appendChild(ans_info);
+            answer_div.appendChild(ans_text);
+            answers_display.appendChild(answer_div);
         }
-
     }
-
-
-
-    
-    });
-
-
-output_div.addEventListener('click',  (e) => {
-       
-
-    if(e.target.className=='homebtn'){
-getquestions();
-
-    }
-        
-    
-    
-        
-});    
-
-output_div.addEventListener('click', async (e) => {
-
-
-
-    if (e.target.className=='answersubmit'){
-        const answerinput = document.querySelector('.answerinput');
-        const currquestion = document.querySelector('.questiontext');
-      //  console.log('currquestion',currquestion);
-        try{
-        let data = await axios.post('/homepage/addanswer',{
-            answer: answerinput.value,
-            currquestionID: currquestion.id
-        })
-        answerinput.value = '';
-        console.log(data);}
-
-        catch(err){}
-
-
-    }
-
-
-});
