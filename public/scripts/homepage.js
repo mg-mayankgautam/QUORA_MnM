@@ -141,8 +141,15 @@ async function getquestions(){
     catch (e) {};
 }
 
+const dropp = document.querySelector('.dropp');
+dropp.dataset.dropdown='div';
+const profile = document.querySelector('.profile');
+const user_img = profile.querySelector('.user_img');
+user_img.dataset.dropdown_btn='button';
+
 document.addEventListener('click', e =>{
     const isDropdown = e.target.matches('[data-dropdown_btn]')
+    console.log(isDropdown)
     if (!isDropdown && e.target.closest('[data-dropdown]') !=null) return
 
     let currentDropdown
