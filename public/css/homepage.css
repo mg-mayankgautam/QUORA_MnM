@@ -158,7 +158,7 @@ button{
     color: white;
     }
 
-/* .questions_display{
+ /*.questions_display{
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -168,8 +168,9 @@ button{
     .output_div{
         display: flex;
         flex-direction: column;
+        gap: 30px;
         margin: 30px 0px 50px;
-    align-items: center;
+        align-items: center;
     }
 
 .question{
@@ -192,11 +193,13 @@ button{
     font-size: small;
     align-items: baseline;
     /* opacity: .75; */
+    cursor: pointer;
 }
 .ques_text{
     font-size: medium;
     font-weight: bold;
     margin-bottom: 25px;
+    cursor: pointer;
 }
 
 .question_disp{
@@ -275,6 +278,7 @@ button{
     align-items: center;
     gap: 5px;
     justify-content: space-between;
+    cursor: pointer;
 }
 
     /* .add_answer:focus > form > input{
