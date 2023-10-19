@@ -148,7 +148,7 @@ function addtopage(data){
         
            const add_answer = document.createElement("div");
            add_answer.classList.add("add_answer");
-        //    data-modal-target="#login"
+           add_answer.dataset.modalTarget="#login";
         
            const add_answer_btn = document.createElement("button");
            add_answer_btn.classList.add("add_answer_btn");
