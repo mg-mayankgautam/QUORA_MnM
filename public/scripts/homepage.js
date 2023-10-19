@@ -21,8 +21,8 @@ function addtopage(data){
         for(let i=0; i<dataarray.length; i++){
         
           //console.log(dataarray.allQuestions);
-           const questions_display = document.createElement("div");
-           questions_display.classList.add("questions_display");
+        //    const questions_display = document.createElement("div");
+        //    questions_display.classList.add("questions_display");
         
            const question = document.createElement("div");
            question.classList.add("question")
@@ -100,9 +100,8 @@ function addtopage(data){
            question.appendChild(ques_info);
            question.appendChild(ques_text);
            question.appendChild(add_answer);
-           questions_display.appendChild(question);
-           output_div.appendChild(questions_display);
-
+           output_div.appendChild(question);
+        //    output_div.appendChild(questions_display);
             } 
 
 }
