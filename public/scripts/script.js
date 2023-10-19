@@ -192,4 +192,135 @@ async function getquestions(){
                         catch (e) {};
 }
 
+output_div.addEventListener('click', async (e) => {
+    //if(e.target.className=='delete_btn'){
+        // console.log(e.target.id);
 
+    //console.log(e.target.className);
+    if(e.target.className=='question'   || 
+     e.target.className=='ques_info'    ||
+     e.target.className=='ques_text'    ||
+     e.target.className=='add_answer')
+    { 
+        output_div.innerHTML = '';
+        const homebtn = document.createElement('button');
+        homebtn.innerText = 'home';
+        homebtn.classList.add('homebtn');
+        output_div.appendChild(homebtn);
+        
+
+        
+
+
+        // let currentquestion = await axios.get(`/homepage/getcurrentquestion`,{
+        //     params: {
+        //       id: String(e.target.id)
+        //     }
+        //   });
+
+
+        
+
+
+        const question = document.createElement("div");
+        question.classList.add("question_disp")
+     
+        const ques_info = document.createElement("div");
+        ques_info.classList.add("questioninfo");
+     
+        const ques_user = document.createElement("div");
+        ques_user.classList.add("questionuser");
+        
+     
+        const ques_date = document.createElement("div");
+        ques_date.classList.add("ques_date");
+     
+        const drop = document.createElement("div");
+        drop.classList.add("drop");
+        drop.dataset.dropdown="div";
+     
+        const settings= document.createElement("button");
+        settings.classList.add("settings");
+        settings.dataset.dropdown_btn='button';
+        settings.innerText='...';
+     
+        const menu = document.createElement("div");
+        menu.classList.add("menu");
+
+        const copy_link = document.createElement("button");
+        copy_link.classList.add("copy_link");
+        copy_link.innerText='Copy Link';
+     
+        const delete_btn = document.createElement("button");
+        delete_btn.classList.add("delete_btn");
+        delete_btn.innerText="Delete";
+        
+        const edit_btn = document.createElement("button");
+        edit_btn.classList.add("edit_btn");
+        edit_btn.innerText="Edit";
+        menu.appendChild(delete_btn);
+        menu.appendChild(edit_btn);
+        
+
+        const questiontext = document.createElement("div");
+        questiontext.classList.add("questiontext");
+        // questiontext.innerHTML = currentquestion.data.question;
+        questiontext.innerHTML = 'currentquestion.data.question';
+
+        //questiontext.id=currentquestion.data._id;
+     
+        const add_answer = document.createElement("div");
+        add_answer.classList.add("add_answers");
+     
+        const form = document.createElement("form");
+
+        const answerinput = document.createElement("input");
+        answerinput.classList.add('answerinput');
+        answerinput.placeholder='Add Answer:';
+
+        const answersubmit = document.createElement('button');
+        answersubmit.classList.add('add_answer_btn');
+        answersubmit.innerText='+';
+             
+        const answer_num = document.createElement("div");
+        answer_num.classList.add("answer_num");
+
+        const answers_display = document.createElement("div");
+        answers_display.classList.add("answers_display");
+        const h3 = document.createElement("h3");
+        h3.innerText='answers:';    
+     
+        menu.appendChild(copy_link);
+        drop.appendChild(settings);
+        drop.appendChild(menu);
+        ques_info.appendChild(ques_user);
+        ques_info.appendChild(ques_date);
+        ques_info.appendChild(drop);
+        form.appendChild(answerinput);
+        form.appendChild(answersubmit);
+        add_answer.appendChild(form);
+        add_answer.appendChild(answer_num);
+        answers_display.appendChild(h3);
+        question.appendChild(ques_info);
+        question.appendChild(questiontext);
+        question.appendChild(add_answer);
+        question.appendChild(answers_display);
+        output_div.appendChild(question);
+
+        // const questiontext = document.createElement('div');
+        // questiontext.classList.add('questiontext');    
+        
+        // let allanswers = await axios.get('/homepage/getanswers',{
+        //     params: {
+        //       id: String(e.target.id)
+        //     }
+        //   });
+        //console.log(allanswers);
+     //  addtopageanswers(allanswers);
+
+    }
+
+
+
+    
+    });

@@ -187,14 +187,14 @@ catch(e) {};
 //delete button
 
 
-//get questions
+//get questions/ home button
 output_div.addEventListener('click',  (e) => {       
 
     if(e.target.className=='homebtn'){
     getquestions();
     }        
 });    
-//get questions 
+//get questions /home button
 
 
 //post answers
@@ -226,7 +226,7 @@ output_div.addEventListener('click', async (e) => {
 });
 //post answers
 
-
+//open a question
 output_div.addEventListener('click', async (e) => {
     //if(e.target.className=='delete_btn'){
         // console.log(e.target.id);
@@ -360,9 +360,9 @@ output_div.addEventListener('click', async (e) => {
 
     
     });
+//open a question
 
-
-    function addtopageanswers(data){
+function addtopageanswers(data){
 
         console.log(data.data);
         const dataarray =data.data
