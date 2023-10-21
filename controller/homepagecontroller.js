@@ -98,6 +98,21 @@ module.exports.getcurrentquestion = async (req,res) => {
 
 };
 
+module.exports.getcurrentlandingquestion = async (req,res) => {
+
+   // console.log('jei',req.query);
+ 
+    const {id}=req.query;
+ 
+    const currquestion = await questionDB.findById(id);
+ 
+    res.send(currquestion)
+ 
+ 
+ 
+ 
+ };
+
 module.exports.addanswer = async (req, res) => {
    
    const {answer}= req.body;

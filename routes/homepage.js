@@ -15,6 +15,10 @@ router.post('/deletequestion',homepagecontroller.deletequestion);
 
 router.get('/getcurrentquestion',homepagecontroller.getcurrentquestion);
 
+router.get('/getcurrentlandingquestion',homepagecontroller.getcurrentlandingquestion);
+
+
+
 router.get('/getanswers',homepagecontroller.getallquestions);
 
 

@@ -86,8 +86,8 @@ function addtopage(data){
    
     const dataarray =data.data.allQuestions;
     const currUser = data.data.currUser;
-    //console.log(dataarray);
-    console.log(currUser);
+    console.log(dataarray);
+    //console.log(currUser);
 
     output_div.innerHTML = '';
 
@@ -102,10 +102,11 @@ function addtopage(data){
         
            const question = document.createElement("div");
            question.classList.add("question")
-           // question_div.dataset.uniqueid=questions[i].Q_id;
+            question.id=dataarray[i]._id;
         
            const ques_info = document.createElement("div");
            ques_info.classList.add("ques_info");
+           ques_info.id=dataarray[i]._id;
         
            const ques_user = document.createElement("div");
            ques_user.classList.add("ques_user");
@@ -143,10 +144,12 @@ function addtopage(data){
            }
 
            const ques_text = document.createElement("div");
+           ques_text.id= dataarray[i]._id
            ques_text.classList.add("ques_text");
            ques_text.innerHTML= dataarray[i].question;
         
            const add_answer = document.createElement("div");
+           add_answer.id= dataarray[i]._id
            add_answer.classList.add("add_answer");
            add_answer.dataset.modalTarget="#login";
         
@@ -210,13 +213,13 @@ output_div.addEventListener('click', async (e) => {
         
 
         
+        //console.log(e.target.id)
 
-
-        // let currentquestion = await axios.get(`/homepage/getcurrentquestion`,{
-        //     params: {
-        //       id: String(e.target.id)
-        //     }
-        //   });
+        let currentquestion = await axios.get('/homepage/getcurrentlandingquestion',{
+            params: {
+              id: String(e.target.id)
+            }
+          });
 
 
         
@@ -264,8 +267,8 @@ output_div.addEventListener('click', async (e) => {
 
         const questiontext = document.createElement("div");
         questiontext.classList.add("questiontext");
-        // questiontext.innerHTML = currentquestion.data.question;
-        questiontext.innerHTML = 'currentquestion.data.question';
+         questiontext.innerHTML = currentquestion.data.question;
+        //questiontext.innerHTML = 'currentquestion.data.question';
 
         //questiontext.id=currentquestion.data._id;
      
@@ -307,16 +310,16 @@ output_div.addEventListener('click', async (e) => {
         question.appendChild(answers_display);
         output_div.appendChild(question);
 
-        // const questiontext = document.createElement('div');
-        // questiontext.classList.add('questiontext');    
+      //  const questiontext = document.createElement('div');
+        //questiontext.classList.add('questiontext');    
         
-        // let allanswers = await axios.get('/homepage/getanswers',{
-        //     params: {
-        //       id: String(e.target.id)
-        //     }
-        //   });
-        //console.log(allanswers);
-     //  addtopageanswers(allanswers);
+        let allanswers = await axios.get('/homepage/getanswers',{
+            params: {
+              id: String(e.target.id)
+            }
+          });
+        console.log(allanswers);
+      addtopageanswers(allanswers);
 
     }
 
@@ -324,3 +327,69 @@ output_div.addEventListener('click', async (e) => {
 
     
     });
+
+
+
+  //home btn
+output_div.addEventListener('click',  (e) => {       
+
+        if(e.target.className=='homebtn'){
+        getquestions();
+        }        
+});     
+//home btn
+
+function addtopageanswers(data){
+
+    console.log(data.data);
+    const dataarray =data.data
+    const answers_display = document.querySelector('.answers_display')
+    console.log(answers_display);
+    for(let i=0; i<dataarray.length; i++){
+
+        const answer_div = document.createElement('div');
+        answer_div.classList.add('answer');
+
+        const ans_info = document.createElement('div');
+        ans_info.classList.add('ans_info');
+        const ans_user = document.createElement('div');
+        ans_user.classList.add('ans_user');
+        const ans_date = document.createElement('div');
+        const drop = document.createElement("div");
+        drop.classList.add("drop");
+        drop.dataset.dropdown="div";
+        const settings= document.createElement("button");
+        settings.classList.add("settings");
+        settings.dataset.dropdown_btn='button';
+        settings.innerText='...';
+        const menu = document.createElement("div");
+        menu.classList.add("menu");    
+
+        const copy_link = document.createElement("button");
+        copy_link.classList.add("copy_link");
+        copy_link.innerText='Copy Link';
+        const delete_btn = document.createElement("button");
+        delete_btn.classList.add("delete_btn");
+        delete_btn.innerText="Delete";
+        // delete_btn.id= dataarray[i]._id;
+        const edit_btn = document.createElement("button");
+        edit_btn.classList.add("edit_btn");
+        edit_btn.innerText="Edit";
+
+        const ans_text = document.createElement("div");
+        ans_text.classList.add("ans_text");
+        ans_text.innerHTML = dataarray[i].answer
+
+        menu.appendChild(copy_link);
+        menu.appendChild(delete_btn);
+        menu.appendChild(edit_btn);
+        drop.appendChild(settings);
+        drop.appendChild(menu);
+        ans_info.appendChild(ans_user);
+        ans_info.appendChild(ans_date);
+        ans_info.appendChild(drop);
+        answer_div.appendChild(ans_info);
+        answer_div.appendChild(ans_text);
+        answers_display.appendChild(answer_div);
+    }
+}
