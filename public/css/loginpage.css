@@ -2,6 +2,7 @@
 
 
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
 
 body{
     margin: auto;
@@ -9,10 +10,11 @@ body{
     font-family: 'Poppins', sans-serif;
     background-color: #F2F2F2;
 }
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
 
 .navbar{
     display: flex;
+    color: white;
     background-color: #1d273d;
     height: 40px;
     justify-content:space-between;
@@ -21,6 +23,7 @@ body{
     gap: 30px;
     position: sticky;
     top: 0;
+    z-index: 1;
 }
 .site_name{
     margin: 30px;
@@ -44,7 +47,6 @@ button.search_question_btn{
     width: 33.4px;
     height: 33.4px;
 }
-
 .nav_btns{
     margin-right: 30px;
     color: white;
@@ -71,7 +73,7 @@ input{
     box-sizing: border-box;
     }
 
-form[action='/addquestion']{
+.add_question > form{
     display: flex;
     gap: 8px;
     align-items: center;
@@ -108,7 +110,7 @@ button{
     color: white;
     }
 
-.questions_display{
+.output_div{
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -135,9 +137,38 @@ button{
     justify-content: right;
     font-size: small;
     align-items: baseline;
-    /* opacity: .75; */
+    /* opacity: ; */
+    cursor: pointer;
 }
 .ques_text{
+    font-size: medium;
+    font-weight: bold;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+.question_disp{
+    width: 800px;
+    max-width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: white;
+    min-height: 100px;
+    /* border: solid 1px #9da5a3; */
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.questioninfo{
+    display: flex;
+    gap:30px;
+    justify-content: right;
+    font-size: small;
+    align-items: baseline;
+    /* opacity: .75; */
+}
+.questiontext{
     font-size: medium;
     font-weight: bold;
     margin-bottom: 25px;
@@ -187,32 +218,49 @@ button{
     /* opacity: .75; */
 }
 
-.answer{
-    display: flex;
-    flex-direction: column;
-    min-height: 100px;
-    border: solid 1px #9da5a3;
-    padding: 10px 15px;
-    border-radius: 5px;
-    gap: 50px;
-}
-
-form[action='/addanswer']{
-    display: flex;
-    gap: 5px;
-    align-items: center;
-}
 .add_answer{
     display: flex;
     align-items: center;
     gap: 5px;
     justify-content: space-between;
+    cursor: pointer;
+}
+
+.answers_display{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.answers_display > h3{
+    font-style: italic;
+    font-weight: .75rem;
+    padding: 0;
+    margin: 0;
+}
+
+.answer{
+    display: flex;
+    flex-direction: column;
+    /* min-height: 100px; */
+    border-bottom: solid 5px #bec4c2;
+    padding: 0px 15px 30px;
+    /* border-radius: 5px; */
+    gap: 20px;
+}
+
+.add_answer> form{
+    display: flex;
+    gap: 5px;
+    align-items: center;
 }
 
 .ans_info{
     display: flex;
-    gap:40px;
+    gap:30px;
     justify-content: right;
+    font-size: small;
+    align-items: baseline;
 }
 
 button.delete_btn{
@@ -289,12 +337,12 @@ button.delete_btn{
     padding: 25px 15px 30px;
 }
 
-form[action='/login']{
+form[action='/authentication/login']{
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
-form[action='/authentication/signup']{
+form[action="/authentication/signup"]{
     display: flex;
     flex-direction: column;
     gap: 8px;
