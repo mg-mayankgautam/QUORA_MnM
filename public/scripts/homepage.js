@@ -148,7 +148,7 @@ user_img.dataset.dropdown_btn='button';
 
 document.addEventListener('click', e =>{
     const isDropdown = e.target.matches('[data-dropdown_btn]')
-    console.log(isDropdown)
+    // console.log(isDropdown)
     if (!isDropdown && e.target.closest('[data-dropdown]') !=null) return
 
     let currentDropdown
@@ -351,7 +351,7 @@ output_div.addEventListener('click', async (e) => {
               id: String(e.target.id)
             }
           });
-        //console.log(allanswers);
+        console.log(allanswers);
        addtopageanswers(allanswers);
 
     }
@@ -367,7 +367,7 @@ function addtopageanswers(data){
         console.log(data.data);
         const dataarray =data.data
         const answers_display = document.querySelector('.answers_display')
-        console.log(answers_display);
+        // console.log(answers_display);
         for(let i=0; i<dataarray.length; i++){
 
             const answer_div = document.createElement('div');
