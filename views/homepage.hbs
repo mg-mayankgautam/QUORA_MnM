@@ -115,6 +115,7 @@ button.search_question_btn{
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 /* .user_img:hover .dropdown{
@@ -292,13 +293,12 @@ button{
     justify-content: space-between;
     cursor: pointer;
 }
+    .add_answer> form{
+        display: flex;
+        gap: 5px;
+        align-items: center;
+    }
 
-    /* .add_answer:focus > form > input{
-        transition: width 250ms ease-in-out;
-        width: 90%;
-    } */
-    
-    
     .answers_display{
         display: flex;
         flex-direction: column;
@@ -322,12 +322,15 @@ button{
         gap: 20px;
     }
     
-    .add_answer> form{
+    .add_answers > form {
         display: flex;
-        gap: 5px;
         align-items: center;
+        gap: 5px;
     }
-    
+    .answerinput:focus{
+        flex-grow: 1;
+        transition: flex-grow 150ms ease-out;
+    }
     .ans_info{
         display: flex;
         gap:30px;
@@ -366,7 +369,7 @@ button{
             </div>  
             <div class="dropdown">
                 <img class="user_img" src="https://www.svgrepo.com/show/382095/female-avatar-girl-face-woman-user-4.svg" alt="Avatar">
-                <div>Hi username!</div>
+                <div>Hi {{username}}!</div>
                 <button class="my_questions_btn">My Questions</button>
                 <button>Settings</button>
                 <form action="/authentication/logout" method="GET">
