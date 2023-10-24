@@ -1,6 +1,7 @@
 const openModalbtn = document.querySelectorAll('[data-modal-target]');
 const closeModalbtn = document.querySelectorAll('[data-close-btn]');
 const overlay = document.getElementById('overlay');
+const output_div = document.querySelector('.output_div');
 
 console.log('attach hunda si')
 
@@ -87,7 +88,7 @@ document.addEventListener('click', e =>{
 
 
 
-const output_div = document.querySelector(".output_div");
+//const output_div = document.querySelector(".output_div");
 
 getquestions();
 
@@ -194,14 +195,14 @@ function addtopage(data){
 
 
 async function getquestions(){
-    //console.log("attachrd")
+    console.log("attachrd")
 
                         try{
-                        let data = await axios.get('/authentication/getquestions',)
-                        console.log('get questions aa gaya',data);
-                        addtopage(data);
+                        let dataarr = await axios.get('/authentication/getquestions');
+                        console.log('get questions aa gaya',dataarr);
+                        addtopage(dataarr);
                         }
-                        catch (e) {};
+                        catch (e) { console.log('get ques nhi hora',e)};
 }
 
 output_div.addEventListener('click', async (e) => {

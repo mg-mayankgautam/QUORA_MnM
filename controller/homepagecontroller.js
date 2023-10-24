@@ -66,7 +66,7 @@ module.exports.landingQuestions = async (req, res)=>{
 
    // else(!currUser){
    //    }
-
+      console.log({allQuestions});
       res.send({allQuestions});
 };
 
