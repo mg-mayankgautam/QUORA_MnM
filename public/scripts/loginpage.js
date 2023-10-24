@@ -87,6 +87,9 @@ document.addEventListener('click', e =>{
 
 
 
+const output_div = document.querySelector(".output_div");
+
+getquestions();
 
 
 function addtopage(data){
@@ -189,14 +192,13 @@ function addtopage(data){
 
 
 
-getquestions();
 
 async function getquestions(){
     //console.log("attachrd")
 
                         try{
                         let data = await axios.get('/authentication/getquestions',)
-                       // console.log('get questions aa gaya',data);
+                        console.log('get questions aa gaya',data);
                         addtopage(data);
                         }
                         catch (e) {};
