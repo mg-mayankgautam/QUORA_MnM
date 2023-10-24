@@ -4,13 +4,13 @@ const authenticationController = require('../controller/authenticationController
 const homepageController = require('../controller/homepagecontroller.js');
 const router = express.Router();
 
-router.post('/signup',authenticationController.signup);
+//router.post('/signup',authenticationController.signup);
 
-router.post('/login',authenticationController.login);
+//router.post('/login',authenticationController.login);
 
-router.get('/logout',authenticationController.logout);
+// router.get('/logout',authenticationController.logout);
 
-router.get('/getquestions',homepageController.landingQuestions)
+//router.get('/getquestions',homepageController.landingQuestions)
 
 module.exports = router;
 

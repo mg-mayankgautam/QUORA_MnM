@@ -39,9 +39,7 @@ app.use(
 
 
 
-const homepageRouter = require('./routes/homepage.js');
 
-app.use('/homepage', homepageRouter);
 
 const authenticationRouter = require('./routes/authentication.js');
 
@@ -50,6 +48,12 @@ app.use('/authentication', authenticationRouter);
 //netstat -ano | findstr :5000
 //taskkill /F /T /PID 12345
 
+const homepageRouter = require('./routes/homepage.js');
+
+app.use('/homepage', homepageRouter);
+const landingpageRouter = require('./routes/landingpage.js');
+
+app.use('/landingpage', landingpageRouter);
 
 
 

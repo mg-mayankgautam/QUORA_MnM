@@ -97,7 +97,7 @@ function addtopage(data){
    
     const dataarray =data.data.allQuestions;
     const currUser = data.data.currUser;
-    console.log(dataarray);
+    // console.log(dataarray);
     //console.log(currUser);
 
     output_div.innerHTML = '';
@@ -198,7 +198,7 @@ async function getquestions(){
     console.log("attachrd")
 
                         try{
-                        let dataarr = await axios.get('/authentication/getquestions');
+                        let dataarr = await axios.get('/landingpage/getquestions');
                         console.log('get questions aa gaya',dataarr);
                         addtopage(dataarr);
                         }
@@ -225,7 +225,7 @@ output_div.addEventListener('click', async (e) => {
         
         //console.log(e.target.id)
 
-        let currentquestion = await axios.get('/homepage/getcurrentlandingquestion',{
+        let currentquestion = await axios.get('/landingpage/getcurrentlandingquestion',{
             params: {
               id: String(e.target.id)
             }
@@ -323,7 +323,7 @@ output_div.addEventListener('click', async (e) => {
       //  const questiontext = document.createElement('div');
         //questiontext.classList.add('questiontext');    
         
-        let allanswers = await axios.get('/homepage/getanswers',{
+        let allanswers = await axios.get('/landingpage/getanswers',{
             params: {
               id: String(e.target.id)
             }

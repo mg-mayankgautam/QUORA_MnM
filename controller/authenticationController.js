@@ -1,4 +1,4 @@
-//const userDB = require("../models/authenticationDB");
+
 const userDB = require("../models/authenticationDB");
 
 
@@ -13,7 +13,7 @@ module.exports.signup = async (req,res)=>{
 
    if (user){return res.render('loginpage')}
    //console.log(req.session);
-
+else{
    let newuser = new userDB ({username,password});
    newuser.save()
     .then(()=>{
@@ -23,7 +23,7 @@ module.exports.signup = async (req,res)=>{
       //  console.log('user addes success');
         res.render('loginpage');
     })
-    .catch(err =>{console.log(err);});
+    .catch(err =>{console.log(err);});}
 }
 
 module.exports.login = async (req, res) => {

@@ -204,9 +204,9 @@ output_div.addEventListener('click', async (e) => {
 
     if (e.target.className=='add_answer_btn'){
         e.preventDefault();
-        const answerinput = document.querySelector('.answerinput');
-        const currquestion = document.querySelector('.questiontext');
-        console.log('currquestion',currquestion);
+        const answerinput =  document.querySelector('.answerinput');
+        const currquestion =  document.querySelector('.questiontext');
+       // console.log('currquestion',currquestion);
 
         try{
         let data = await axios.post('/homepage/addanswer',{
@@ -351,7 +351,7 @@ output_div.addEventListener('click', async (e) => {
               id: String(e.target.id)
             }
           });
-        console.log(allanswers);
+      //  console.log(allanswers);
        addtopageanswers(allanswers);
 
     }

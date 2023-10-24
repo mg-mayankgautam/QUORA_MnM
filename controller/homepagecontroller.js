@@ -18,125 +18,127 @@ module.exports.loadhomepage =  (req,res)=>{
 }
     else{res.render('loginpage')}
  }
+ 
 
-module.exports.addquestion = async (req,res)=>{
+// module.exports.addquestion = async (req,res)=>{
 
-  // console.log('question',req.body.question)
-   const question = req.body.newquestion;
-   //console.log('username',req.session.user.username)
-   const currentUser =req.session.user.username;
+//   // console.log('question',req.body.question)
+//    const question = req.body.newquestion;
+//    //console.log('username',req.session.user.username)
+//    const currentUser =req.session.user.username;
 
    
 
-   let newquestion = new questionDB ({currentUser,question});
-   newquestion.save()
-    .then(()=>{
-        console.log('question added success');
-        res.redirect('/homepage/getquestions');
-    })
-    .catch(err =>{console.log(err);});
+//    let newquestion = new questionDB ({currentUser,question});
+//    newquestion.save()
+//     .then(()=>{
+//         console.log('question added success');
+//         res.redirect('/homepage/getquestions');
+//     })
+//     .catch(err =>{console.log(err);});
 
 
   
-}
+// }
 
-module.exports.getquestions = async (req, res)=>{
+// module.exports.getquestions = async (req, res)=>{
 
 
-const currUser =req.session.user.username;
+// const currUser =req.session.user.username;
 
  
-   const allQuestions = await questionDB.find({}).select({ "currentUser":1, "question": 1, "_id": 1});
+//    const allQuestions = await questionDB.find({}).select({ "currentUser":1, "question": 1, "_id": 1});
  
-//    if(!currUser){res.send({allQuestions});
-//   }
+// //    if(!currUser){res.send({allQuestions});
+// //   }
 
-   // else(!currUser){
-   //    }
+//    // else(!currUser){
+//    //    }
 
-      res.send({allQuestions,currUser});
-};
+//       res.send({allQuestions,currUser});
+// };
 
-module.exports.landingQuestions = async (req, res)=>{
+// module.exports.landingQuestions = async (req, res)=>{
 
-   const allQuestions = await questionDB.find({}).select({ "currentUser":1, "question": 1, "_id": 1});
+//    const allQuestions = await questionDB.find({}).select({ "currentUser":1, "question": 1, "_id": 1});
  
-//    if(!currUser){res.send({allQuestions});
-//   }
+// //    if(!currUser){res.send({allQuestions});
+// //   }
 
-   // else(!currUser){
-   //    }
-      console.log({allQuestions});
-      res.send({allQuestions});
-};
+//    // else(!currUser){
+//    //    }
+//       console.log({allQuestions});
+//       res.send({allQuestions});
+// };
 
-module.exports.deletequestion = async (req, res)=>{
+// module.exports.deletequestion = async (req, res)=>{
 
-   const {quesID} = req.body;
-   //console.log(req.body);
-   try{
-   await questionDB.findByIdAndDelete(quesID);
-   res.redirect('/homepage/getquestions');
-   }
-   catch(err){}
-
-
-};
-
-module.exports.getcurrentquestion = async (req,res) => {
-
-  // console.log('jei',req.query);
-
-   const {id}=req.query;
-
-   const currquestion = await questionDB.findById(id);
-
-   res.send(currquestion)
+//    const {quesID} = req.body;
+//    //console.log(req.body);
+//    try{
+//    await questionDB.findByIdAndDelete(quesID);
+//    res.redirect('/homepage/getquestions');
+//    }
+//    catch(err){}
 
 
+// };
+
+// module.exports.getcurrentquestion = async (req,res) => {
+
+//   // console.log('jei',req.query);
+
+//    const {id}=req.query;
+
+//    const currquestion = await questionDB.findById(id);
+
+//    res.send(currquestion)
 
 
-};
+// };
 
-module.exports.getcurrentlandingquestion = async (req,res) => {
+// module.exports.getcurrentlandingquestion = async (req,res) => {
 
-   // console.log('jei',req.query);
+//    // console.log('jei',req.query);
  
-    const {id}=req.query;
+//     const {id}=req.query;
  
-    const currquestion = await questionDB.findById(id);
+//     const currquestion = await questionDB.findById(id);
  
-    res.send(currquestion)
+//     res.send(currquestion)
  
  
  
  
- };
+//  };
 
-module.exports.addanswer = async (req, res) => {
+// module.exports.addanswer = async (req, res) => {
    
-   const {answer}= req.body;
-   const currquestion= req.body.currquestionID;
-   const currentUser = req.session.user.username;
-   //console.log('currquestionID',currquestionID);
-   let newanswer = new answersDB ({currentUser,currquestion,answer});
-   newanswer.save()
-    .then(()=>{
-       // console.log('answer added success');
-        res.redirect('/homepage/getquestions');
-    })
-    .catch(err =>{console.log(err);});
+//    const {answer}= req.body;
+//    const currquestion= req.body.currquestionID;
+//    const currentUser = req.session.user.username;
+//    //console.log('currquestionID',currquestionID);
+//    let newanswer = new answersDB ({currentUser,currquestion,answer});
+//    newanswer.save()
+//     .then(()=>{
+//        // console.log('answer added success');
+//         res.redirect('/homepage/getquestions');
+//     })
+//     .catch(err =>{console.log(err);});
    
-}
+// }
 
-module.exports.getallquestions= async (req, res) =>{
+// module.exports.getallquestions= async (req, res) =>{
 
-  const currQuestionID = req.query.id;
-  console.log(currQuestionID);
+//   const currQuestionID = req.query.id;
+//   console.log(currQuestionID);
 
-  const answers = await answersDB.find({currquestion:currQuestionID })
+//   const answers = await answersDB.find({currquestion:currQuestionID })
 
-  res.send(answers);
-  //console.log(answers);
+//   res.send(answers);
+//   //console.log(answers);
    
-}
+// }
+
+
+
