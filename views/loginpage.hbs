@@ -7,7 +7,7 @@
       
       <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link  rel="stylesheet" href="css/loginpage.css" > 
+        {{!-- <link  rel="stylesheet" href="css/loginpage.css" >  --}}
        
 <style>
             
@@ -350,12 +350,12 @@ button.delete_btn{
     padding: 25px 15px 30px;
 }
 
-form[action='/authentication/login']{
+.login_body > form{
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
-form[action="/authentication/signup"]{
+.signup_body > form{
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -393,7 +393,7 @@ form[action="/authentication/signup"]{
         <div class="search">
              <form action="/searchquestion" method="POST"> 
                 <input type="text" name="newquestion" class="ques_input" id="m" placeholder="search anything">
-                <button class="search_question_btn"><img class="search_icon" src="/public/media/search-icon.png"></button>
+                <button class="search_question_btn"><img class="search_icon" src="/media/search-icon.png"></button>
              </form> 
         </div>
 

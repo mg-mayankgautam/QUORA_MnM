@@ -268,7 +268,7 @@ output_div.addEventListener('click', async (e) => {
      
         const ques_user = document.createElement("div");
         ques_user.classList.add("questionuser");
-        
+        ques_user.innerHTML= `asked by: ${currentquestion.data.currentUser}`;
      
         const ques_date = document.createElement("div");
         ques_date.classList.add("ques_date");
@@ -304,7 +304,7 @@ output_div.addEventListener('click', async (e) => {
         questiontext.classList.add("questiontext");
         questiontext.innerHTML = currentquestion.data.question;
         questiontext.id=currentquestion.data._id;
-     
+    
         const add_answer = document.createElement("div");
         add_answer.classList.add("add_answers");
      
@@ -377,6 +377,8 @@ function addtopageanswers(data){
             ans_info.classList.add('ans_info');
             const ans_user = document.createElement('div');
             ans_user.classList.add('ans_user');
+            ans_user.innerHTML= `answered by: ${dataarray[i].answeredBy}`;
+
             const ans_date = document.createElement('div');
             const drop = document.createElement("div");
             drop.classList.add("drop");

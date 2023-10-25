@@ -130,6 +130,7 @@ button{
     padding: 10px 15px;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
 }
 .ques_info{
     display: flex;
@@ -337,12 +338,12 @@ button.delete_btn{
     padding: 25px 15px 30px;
 }
 
-form[action='/authentication/login']{
+.login_body > form{
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
-form[action="/authentication/signup"]{
+.signup_body > form{
     display: flex;
     flex-direction: column;
     gap: 8px;

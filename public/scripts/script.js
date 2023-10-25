@@ -131,7 +131,6 @@ function addtopage(data){
            copy_link.classList.add("copy_link");
            copy_link.innerText='Copy Link';
         
-           if(currUser==dataarray[i].currentUser){
            const delete_btn = document.createElement("button");
            delete_btn.classList.add("delete_btn");
            delete_btn.innerText="Delete";
@@ -139,6 +138,9 @@ function addtopage(data){
            const edit_btn = document.createElement("button");
            edit_btn.classList.add("edit_btn");
            edit_btn.innerText="Edit";
+
+
+           if(currUser==dataarray[i].currentUser){
            menu.appendChild(delete_btn);
            menu.appendChild(edit_btn);
            }
@@ -222,7 +224,7 @@ output_div.addEventListener('click', async (e) => {
             }
           });
 
-          console.log(currentquestion.data.currentUser)
+          console.log(currentquestion.data)
 
         
 
@@ -235,6 +237,7 @@ output_div.addEventListener('click', async (e) => {
      
         const ques_user = document.createElement("div");
         ques_user.classList.add("questionuser");
+        ques_user.innerHTML= `asked by: ${currentquestion.data.currentUser}`;
         
      
         const ques_date = document.createElement("div");
@@ -263,8 +266,11 @@ output_div.addEventListener('click', async (e) => {
         const edit_btn = document.createElement("button");
         edit_btn.classList.add("edit_btn");
         edit_btn.innerText="Edit";
-        menu.appendChild(delete_btn);
-        menu.appendChild(edit_btn);
+        
+        // if(currUser==currentquestion.data.currentUser){
+        //     menu.appendChild(delete_btn);
+        //     menu.appendChild(edit_btn);
+        //     }
         
 
         const questiontext = document.createElement("div");
@@ -320,7 +326,7 @@ output_div.addEventListener('click', async (e) => {
               id: String(e.target.id)
             }
           });
-        console.log(allanswers);
+        // console.log(allanswers);
       addtopageanswers(allanswers);
 
     }
@@ -346,7 +352,7 @@ function addtopageanswers(data){
    // console.log(data.data);
     const dataarray =data.data
     const answers_display = document.querySelector('.answers_display')
-    //console.log(answers_display);
+    
     for(let i=0; i<dataarray.length; i++){
 
         const answer_div = document.createElement('div');
@@ -356,6 +362,8 @@ function addtopageanswers(data){
         ans_info.classList.add('ans_info');
         const ans_user = document.createElement('div');
         ans_user.classList.add('ans_user');
+        ans_user.innerHTML= `answered by: ${dataarray[i].answeredBy}`;
+        
         const ans_date = document.createElement('div');
         const drop = document.createElement("div");
         drop.classList.add("drop");
@@ -382,9 +390,12 @@ function addtopageanswers(data){
         ans_text.classList.add("ans_text");
         ans_text.innerHTML = dataarray[i].answer
 
+        // if(currUser==currentquestion.data.currentUser){
+        //     menu.appendChild(delete_btn);
+        //     menu.appendChild(edit_btn);
+        //     }
+
         menu.appendChild(copy_link);
-        menu.appendChild(delete_btn);
-        menu.appendChild(edit_btn);
         drop.appendChild(settings);
         drop.appendChild(menu);
         ans_info.appendChild(ans_user);
