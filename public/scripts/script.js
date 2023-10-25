@@ -1,12 +1,13 @@
-const openModalbtn = document.querySelectorAll('[data-modal-target]');
-const closeModalbtn = document.querySelectorAll('[data-close-btn]');
+const openModalbtn = document.querySelectorAll('[data-modal_target]');
+const closeModalbtn = document.querySelectorAll('[data-close_btn]');
 const overlay = document.getElementById('overlay');
 const output_div = document.querySelector(".output_div");
 
 
 openModalbtn.forEach(button=>{
     button.addEventListener('click', ()=>{
-        const modal = document.querySelector(button.dataset.modalTarget);
+        console.log('modal clickkk')
+        const modal = document.querySelector(button.dataset.modal_target);
         openModal(modal);
     })
 })
@@ -90,7 +91,7 @@ function addtopage(data){
     //console.log(currUser);
 
     output_div.innerHTML = '';
-
+    output_div.style.gap= '30px';
                  
         
 
@@ -158,7 +159,7 @@ function addtopage(data){
            const add_answer_btn = document.createElement("button");
            add_answer_btn.classList.add("add_answer_btn");
            add_answer_btn.innerText='add answer';
-           add_answer_btn.dataset.modalTarget='#login';
+           add_answer_btn.dataset.modal_target='#login';
         
            const answer_num = document.createElement("div");
            answer_num.classList.add("answer_num");
@@ -178,6 +179,20 @@ function addtopage(data){
         //    output_div.appendChild(questions_display);
 
             } 
+
+
+        const openModalbtn = document.querySelectorAll('[data-modal_target]');
+        const closeModalbtn = document.querySelectorAll('[data-close_btn]');
+        const overlay = document.getElementById('overlay');
+
+        openModalbtn.forEach(button=>{
+            button.addEventListener('click', ()=>{
+                // console.log('modal clickkk')
+                const modal = document.querySelector(button.dataset.modal_target);
+                openModal(modal);
+            })
+        })
+
 
 }                
 
@@ -205,15 +220,17 @@ output_div.addEventListener('click', async (e) => {
     //console.log(e.target.className);
     if(e.target.className=='question'   || 
      e.target.className=='ques_info'    ||
-     e.target.className=='ques_text'    ||
-     e.target.className=='add_answer')
+     e.target.className=='ques_text'    
+    //  ||
+    //  e.target.className=='add_answer'
+     )
     { 
         output_div.innerHTML = '';
         const homebtn = document.createElement('button');
         homebtn.innerText = 'home';
         homebtn.classList.add('homebtn');
         output_div.appendChild(homebtn);
-        
+        output_div.style.gap= '10px';
 
         
         //console.log(e.target.id)
@@ -339,7 +356,7 @@ output_div.addEventListener('click', async (e) => {
 
 
 //home btn
-output_div.addEventListener('click',  (e) => {       
+document.addEventListener('click',  (e) => {       
 
         if(e.target.className=='homebtn'){
         getquestions();

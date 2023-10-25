@@ -16,7 +16,7 @@
 <body>
     <div class="navbar">
         <div class="site_name">
-           <h1>Quora</h1> 
+           <h1 class="homebtn">Quora</h1> 
         </div>
     
         <div class="search">
@@ -27,14 +27,14 @@
         </div>
 
         <div class="nav_btns">
-                <button data-modal-target="#login" class="login_btn">
+                <button data-modal_target="#login" class="login_btn">
                     Login 
                 </button>
                 <div class="login" id="login">
                     <div class="header">
                         <div class="login_title">Login</div>
                         <div class="signup_title">SignUp</div>
-                        <button data-close-btn class="close_btn">&times;</button>
+                        <button data-close_btn class="close_btn">&times;</button>
                     </div>
                     <div class="login_body">
                         <form action="/landingpage/login" method="POST">
@@ -64,7 +64,7 @@
         
         <div class="add_question">
             <!-- <form action="/addquestion" method="POST" data-modal-target="#login"> -->
-            <form method="POST" data-modal-target="#login">
+            <form method="POST" data-modal_target="#login">
                 <input type="text" name="newquestion" class="question_input" placeholder="POST A QUESTION">
                 <!-- <button class="add_question_btn" data-modal-target="#login">post</button> -->
             </form>

@@ -13,7 +13,7 @@ function addtopage(data){
     console.log(currUser);
 
     output_div.innerHTML = '';
-
+    output_div.style.gap= '30px';
                    
          
         
@@ -188,7 +188,7 @@ catch(e) {};
 
 
 //get questions/ home button
-output_div.addEventListener('click',  (e) => {       
+document.addEventListener('click',  (e) => {       
 
     if(e.target.className=='homebtn'){
     getquestions();
@@ -242,7 +242,7 @@ output_div.addEventListener('click', async (e) => {
         homebtn.innerText = 'home';
         homebtn.classList.add('homebtn');
         output_div.appendChild(homebtn);
-        
+        output_div.style.gap= '10px';
 
         // const answerinput = document.createElement('input');
         // output_div.appendChild(answerinput);

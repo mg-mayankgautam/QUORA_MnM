@@ -101,7 +101,7 @@ function addtopage(data){
     //console.log(currUser);
 
     output_div.innerHTML = '';
-
+    output_div.style.gap= '30px';
                  
         
 
@@ -188,6 +188,20 @@ function addtopage(data){
 
             } 
 
+
+            const openModalbtn = document.querySelectorAll('[data-modal_target]');
+            const closeModalbtn = document.querySelectorAll('[data-close_btn]');
+            const overlay = document.getElementById('overlay');
+
+            openModalbtn.forEach(button=>{
+            button.addEventListener('click', ()=>{
+                // console.log('modal clickkk')
+                const modal = document.querySelector(button.dataset.modal_target);
+                openModal(modal);
+                })
+            })
+
+
 }                
 
 
@@ -220,8 +234,7 @@ output_div.addEventListener('click', async (e) => {
         homebtn.innerText = 'home';
         homebtn.classList.add('homebtn');
         output_div.appendChild(homebtn);
-        
-
+        output_div.style.gap= '10px';
         
         //console.log(e.target.id)
 
@@ -342,7 +355,7 @@ output_div.addEventListener('click', async (e) => {
 
 
   //home btn
-output_div.addEventListener('click',  (e) => {       
+document.addEventListener('click',  (e) => {       
 
         if(e.target.className=='homebtn'){
         getquestions();
@@ -366,7 +379,7 @@ function addtopageanswers(data){
         const ans_user = document.createElement('div');
         ans_user.classList.add('ans_user');
         ans_user.innerHTML= `answered by: ${dataarray[i].answeredBy}`;
-        
+
         const ans_date = document.createElement('div');
         const drop = document.createElement("div");
         drop.classList.add("drop");
