@@ -195,6 +195,7 @@ async function getquestions(){
                         catch (e) {};
 }
 
+//open a question
 output_div.addEventListener('click', async (e) => {
     //if(e.target.className=='delete_btn'){
         // console.log(e.target.id);
@@ -221,6 +222,7 @@ output_div.addEventListener('click', async (e) => {
             }
           });
 
+          console.log(currentquestion.data.currentUser)
 
         
 
@@ -326,8 +328,8 @@ output_div.addEventListener('click', async (e) => {
 
 
     
-    });
-
+});
+//open a question
 
 
 //home btn
@@ -341,10 +343,10 @@ output_div.addEventListener('click',  (e) => {
 
 function addtopageanswers(data){
 
-    console.log(data.data);
+   // console.log(data.data);
     const dataarray =data.data
     const answers_display = document.querySelector('.answers_display')
-    console.log(answers_display);
+    //console.log(answers_display);
     for(let i=0; i<dataarray.length; i++){
 
         const answer_div = document.createElement('div');

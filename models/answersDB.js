@@ -5,8 +5,8 @@ const {Schema}=mongoose;
 
 
 const answerSchema = new Schema({
-    currentUser: {type:String},
-    currquestion: {type:mongoose.Schema.Types.ObjectId},
+    answeredBy: {type:String},
+    questionID: {type:mongoose.Schema.Types.ObjectId},
     answer: {type:String},
 
 

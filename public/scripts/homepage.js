@@ -256,7 +256,7 @@ output_div.addEventListener('click', async (e) => {
           });
 
 
-        //console.log(currentquestion.data.question,currentquestion.data._id);
+       // console.log(currentquestion);
 
 
         const question = document.createElement("div");

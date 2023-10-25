@@ -10,14 +10,14 @@ const router = express.Router();
 
 
 router.post('/signup',authenticationController.signup);
-
 router.post('/login',authenticationController.login);
 
+
 router.get('/getquestions',questionsController.getlandingQuestions);///landingpage/getquestions
-
 router.get('/getcurrentlandingquestion',questionsController.getcurrentquestion);
-
 router.get('/getanswers',answerscontroller.getallanswers);
+
+
 
 
 module.exports = router;
